@@ -1,1 +1,2 @@
-# Spoonacular
+# Spoonacular API
+
