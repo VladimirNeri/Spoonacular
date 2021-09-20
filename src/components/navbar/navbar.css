@@ -1,0 +1,13 @@
+.navbar {
+
+  background-color: dodgerblue;
+  height: 50px; 
+  padding-left: 5px;
+  padding-right: 5px; 
+  display: flex;
+  justify-content: space-between;
+}
+
+.title {
+  font-family: 'Shadows Into Light', cursive;
+}

@@ -4,7 +4,7 @@ import Home from './pages/home';
 
 import './App.css';
 
-function App() {
+const App = () => {
   return (
     <div className='App'>
       <Router>

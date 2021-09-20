@@ -1,0 +1,13 @@
+.recipe-search {
+  padding-top: 10px;
+}
+
+.ingredient-input {
+  padding-left: 16px;
+  width: 400px;
+  height: 25px;
+  border-radius: 4px;
+  border: none;
+  background-color: #ff79c6;
+  color: black; 
+}
