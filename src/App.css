@@ -5,3 +5,11 @@
   margin-right: auto;
 }
 
+.container {
+  display: flexbox; 
+  height: 50px; 
+  padding-left: 5px;
+  padding-right: 5px; 
+  display: flex;
+  justify-content: space-between;
+}
