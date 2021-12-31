@@ -1,9 +1,57 @@
 .navbar {
 
-  /* background-color: dodgerblue; */
+  background-color: white; 
+  padding: 10px;
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
 
 }
 
-.title {
+.nav-brand {
   font-family: 'Shadows Into Light', cursive;
+  text-decoration: none;
+  padding-left: 20px; 
+  color: initial; 
+  font-size: 40px; 
+  font-weight: 450; 
+}
+
+.nav-brand:hover {
+  text-decoration: none; 
+}
+
+.nav-brand:active {
+  color: salmon; 
+}
+
+.navbar ul {
+  list-style-type: none; 
+  overflow: hidden; 
+  padding-right: 20px; 
+  text-align: center; 
+}
+
+.navbar li {
+  display: inline-block; 
+}
+
+.nav-item a {
+  font-family: 'Shadows Into Light', cursive;
+  text-decoration: none;
+  font-weight: normal;
+  font-size: 30px; 
+  display: inline-block;
+  text-align: center; 
+  padding: 13px 20px; 
+  min-width: 75px; 
+}
+
+.nav-item:hover a {
+  text-decoration: none; 
+  color: salmon; 
+}
+
+.nav-item a.active {
+  font-weight: bold; 
 }

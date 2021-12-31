@@ -1,81 +1,28 @@
-import React, { useState, useEffect } from 'react';
-
-import Navbar from '../components/navbar/Navbar';
-import Search from '../components/search/Search';
-import Recipes from '../components/recipes/Recipes';
-import Ingredients from '../components/ingredients/Ingredients'; 
+import React from 'react';
+import { Link } from 'react-router-dom';
+import logo from '../assets/titleimage.jpg';
 
 const Home = () => {
-  const [recipes, setRecipes] = useState([]);
-  const [summary, setSummary] = useState([]); 
-  const [loading, setLoading] = useState(true);
-  
-  const [errorMessage, setErrorMessage] = useState(null);
-
-  const apiKey = process.env.REACT_APP_API_KEY;
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?number=1&apiKey=${apiKey}`
-        );
-        const data = await response.json();
-        console.log(data.recipes);
-        setLoading(false);
-        setRecipes(data.recipes);
-      } catch (error) {
-        setErrorMessage(error);
-        setLoading(false);
-      }
-    })();
-  }, []);
-
-  const search = (searchValue) => {
-    setLoading(true);
-    setErrorMessage(null);
-
-    fetch(
-      `https://api.spoonacular.com/recipes/findByIngredients/?ingredients=${searchValue}&apiKey=${apiKey}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        setRecipes(data);
-      });
-  };
-
   return (
-    <>
-      <div className='container'>
-        <Navbar />
-  
-        <Search search={search} />
-       
+    <div className='home-layout'>
+      <div>
+        <h1>Online Recipe Search</h1>
+        <p>
+          Search your favorite recipes with <em>Spoonacular API</em> with our
+          easy to use app, and view the recipe and nutrition information.
+        </p>
+        <Link to='search' className='btn btn-default'>
+          Start Searching
+        </Link>
       </div>
-
-      <div className='recipes'>
-      {/* <Recipes
-              
-            /> */}
-
-        {recipes.map((recipe) => {
-          return (
-
-            <Recipes
-              key={recipe.id}
-              title={recipe.title}
-              image={recipe.image}
-              summary={recipe.summary}
-            />
-
-          );
-        })}
-
-      </div>
-      
-      
-    </>
+      <img
+        src={logo}
+        width='350'
+        height='240'
+        className='rounded home-image'
+        alt=''
+      />
+    </div>
   );
 };
 

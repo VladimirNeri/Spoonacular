@@ -1,21 +1,25 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/navbar/Navbar';
 import Home from './pages/home';
-import Searchpage from './pages/searchpage'
+import Recipe from './pages/recipe'; 
+import Searchpage from './pages/searchpage';
 
 import './App.css';
 
 const App = () => {
   return (
-    <div className='App'>
-      <Router>
+    <Router>
+      <Navbar />
+      <div className='container'>
         <Switch>
-        <Route exact path='/' component={Home} />
-        <Route path='/searchpage' component={Searchpage} />
+          <Route exact path='/' component={Home} />
+          <Route exact path='/recipe' component={Recipe} />
+          <Route exact path='/search' component={Searchpage} />
         </Switch>
-      </Router>
-    </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
