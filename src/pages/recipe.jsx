@@ -1,47 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import Recipes from '../components/recipes/Recipes';
-import Recipesummary from '../components/recipeSummary/Recipesummary';
-import Recipeinstructions from '../components/recipeInstructions/Recipeinstructions';
+import spoonacular from '../apis/spoonacular';
+// import Recipesummary from '../components/recipeSummary/Recipesummary';
+// import Recipeinstructions from '../components/recipeInstructions/Recipeinstructions';
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    const apiKey = process.env.REACT_APP_API_KEY;
-    (async () => {
-      try {
-        const response = await fetch(
-          `https://api.spoonacular.com/recipes/random?number=1&apiKey=${apiKey}`
-        );
-        const data = await response.json();
-        console.log(data.recipes);
-
-        setRecipes(data.recipes);
-      } catch (error) {}
-    })();
+    const fetchData = async () => {
+      const apiKey = process.env.REACT_APP_API_KEY;
+      const result = await spoonacular.get(
+        `/recipes/random?number=1&apiKey=${apiKey}`
+      );
+      setRecipes(result.data.recipes);
+      console.log(result.data.recipes);
+    };
+    fetchData();
   }, []);
 
   return (
     <div className='recipe-layout'>
       <h1>Recipe of the Day</h1>
       <div className='recipe-container'>
-        {recipes.map((recipe) => {
-          return (
-            <>
-              <Recipes
-                key={recipe.id}
-                title={recipe.title}
-                image={recipe.image}
-                instructions={recipe.instructions}
-                summary={recipe.summary}
-              />
-              <Recipesummary summary={recipe.summary} />
-              <br></br>
-              <Recipeinstructions instructions={recipe.instructions} />
-
-            </>
-          );
-        })}
+        {recipes.map((recipe, i) => (
+          <div>
+            <Recipes
+              key={recipe.id}
+              title={recipe.title}
+              image={recipe.image}
+              instructions={recipe.instructions}
+              summary={recipe.summary}
+            />
+            {recipe.extendedIngredients.map((c, i) => (
+              <div className='ingredient-list'>{c.original}</div>
+            ))}
+          </div>
+        ))}
       </div>
     </div>
   );

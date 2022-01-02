@@ -3,15 +3,24 @@ import React from 'react';
 import './recipes.css';
 
 
-const Recipes = ({ id, title, image, instructions, summary }) => {
+const Recipes = ({ id, title, image, instructions, summary, ingredients }) => {
 // add line breaks to rendered string
-const tagHtml = (summary) => {
+const tagHtmlSummary = (summary) => {
   let string = summary.replace(/(?:\r\n|\r|\n)/g, '<br>');
   return string;
 };
 
+const tagHtmlInstructions = (instructions) => {
+  let string = instructions.replace(/(?:\r\n|\r|\n)/g, '<br>');
+  return string;
+};
+
+const renderSummary = () => {
+  return <div dangerouslySetInnerHTML={{ __html: tagHtmlSummary(summary) }}/>
+};
+
 const renderInstructions = () => {
-  return <div dangerouslySetInnerHTML={{ __html: tagHtml(instructions) }}/>
+  return <div dangerouslySetInnerHTML={{ __html: tagHtmlInstructions(instructions) }}/>
 };
 
 
@@ -22,6 +31,11 @@ const renderInstructions = () => {
         <div className='recipe-image'>
           <img src={image} alt='recipe' />
         </div>
+        <div className='recipe-summary'>{renderSummary()}</div>
+        <br></br>
+        <div className='recipe-instructions'>{renderInstructions()}</div>
+        <br></br>
+        <div className='recipe-ingredients'>{ingredients}</div>
     </div>
   );
 };
