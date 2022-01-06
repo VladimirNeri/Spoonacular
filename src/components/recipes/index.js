@@ -3,7 +3,7 @@ import React from 'react';
 import './recipes.css';
 
 
-const Recipes = ({ id, title, image, instructions, summary, ingredients }) => {
+const Recipes = (props) => {
 // add line breaks to rendered string
 const tagHtmlSummary = (summary) => {
   let string = summary.replace(/(?:\r\n|\r|\n)/g, '<br>');
@@ -16,26 +16,26 @@ const tagHtmlInstructions = (instructions) => {
 };
 
 const renderSummary = () => {
-  return <div dangerouslySetInnerHTML={{ __html: tagHtmlSummary(summary) }}/>
+  return <div dangerouslySetInnerHTML={{ __html: tagHtmlSummary(props.summary) }}/>
 };
 
 const renderInstructions = () => {
-  return <div dangerouslySetInnerHTML={{ __html: tagHtmlInstructions(instructions) }}/>
+  return <div dangerouslySetInnerHTML={{ __html: tagHtmlInstructions(props.instructions) }}/>
 };
 
 
   return (
     <div className='recipe'>
       
-        <h2 className='recipe-title'>{title}</h2>
+        <h2 className='recipe-title'>{props.title}</h2>
         <div className='recipe-image'>
-          <img src={image} alt='recipe' />
+          <img src={props.image} alt='recipe' />
         </div>
         <div className='recipe-summary'>{renderSummary()}</div>
         <br></br>
         <div className='recipe-instructions'>{renderInstructions()}</div>
         <br></br>
-        <div className='recipe-ingredients'>{ingredients}</div>
+        <div className='recipe-ingredients'>{props.ingredients}</div>
     </div>
   );
 };

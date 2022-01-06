@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Recipes from '../components/recipes/Recipes';
+import Recipes from '../components/Recipes';
 import spoonacular from '../apis/spoonacular';
-// import Recipesummary from '../components/recipeSummary/Recipesummary';
-// import Recipeinstructions from '../components/recipeInstructions/Recipeinstructions';
+
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -17,6 +16,7 @@ const Recipe = () => {
       console.log(result.data.recipes);
     };
     fetchData();
+    
   }, []);
 
   return (
@@ -37,6 +37,8 @@ const Recipe = () => {
             ))}
           </div>
         ))}
+
+        
       </div>
     </div>
   );
