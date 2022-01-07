@@ -12,7 +12,7 @@
   font-family: 'Shadows Into Light', cursive;
   text-decoration: none;
   padding-left: 20px; 
-  color: initial; 
+  color: black; 
   font-size: 40px; 
   font-weight: 450; 
 }
@@ -37,10 +37,9 @@
 }
 
 .nav-item a {
-  font-family: 'Shadows Into Light', cursive;
   text-decoration: none;
   font-weight: normal;
-  font-size: 30px; 
+  font-size: 25px; 
   display: inline-block;
   text-align: center; 
   padding: 13px 20px; 

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Recipes from '../components/Recipes';
 import spoonacular from '../apis/spoonacular';
 
-
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
 
@@ -16,30 +15,46 @@ const Recipe = () => {
       console.log(result.data.recipes);
     };
     fetchData();
-    
   }, []);
 
   return (
-    <div className='recipe-layout'>
-      <h1>Recipe of the Day</h1>
-      <div className='recipe-container'>
-        {recipes.map((recipe, i) => (
-          <div>
-            <Recipes
-              key={recipe.id}
-              title={recipe.title}
-              image={recipe.image}
-              instructions={recipe.instructions}
-              summary={recipe.summary}
-            />
+    <div>
+      {recipes.map((recipe, i) => (
+        <div className='recipe-layout'>
+          <Recipes
+            key={recipe.id}
+            title={recipe.title}
+            image={recipe.image}
+            summary={recipe.summary}
+          />
+          <br></br>
+
+          <div className='recipe-ingredient'>
+            <h4>Ingredients:</h4>
+            <br></br>
             {recipe.extendedIngredients.map((c, i) => (
-              <div className='ingredient-list'>{c.original}</div>
+              <div>{c.original}</div>
             ))}
           </div>
-        ))}
-
-        
-      </div>
+          <div className recipe-steps>
+            <h4>Instructions:</h4>
+            <br></br>
+            {recipe.analyzedInstructions.map((e, i) =>
+              e.steps.map((steps, i) => (
+                <div className='recipe-steps'>
+                  <div>
+                    Step {steps.number}
+                    <br></br>
+                    <br></br>
+                    {steps.step}
+                  </div>
+                  <br></br>
+                </div>
+              ))
+            )}
+          </div>
+        </div>
+      ))}
     </div>
   );
 };

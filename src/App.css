@@ -6,7 +6,7 @@
 }
 
 .container {
-  max-width: 900px; 
+  max-width: 1000px; 
   margin: 0 auto; 
   padding: 0 20px; 
 }
@@ -103,4 +103,20 @@
     stroke-dashoffset: 187;
     transform: rotate(450deg);
   }
+}
+
+/*Recipe Layout*/
+
+.recipe-layout {
+  
+}
+
+.recipe-ingredient {
+  float: left;
+  width: 40%; 
+}
+
+.recipe-steps {
+  width: 60%;
+  float: right;
 }
