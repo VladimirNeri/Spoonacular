@@ -1,0 +1,21 @@
+h4 {
+  text-align: center;
+  line-height: 1.5em;
+}
+
+img {
+  display: block;
+  width: 270px;
+
+  margin-left: 100px;
+  margin-right: auto;
+  border-radius: 30px;
+  
+}
+
+.search-results {
+  display: inline-block; 
+  width: 50%; 
+
+}
+

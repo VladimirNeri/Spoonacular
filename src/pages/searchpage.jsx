@@ -7,7 +7,6 @@ const Searchpage = () => {
   const [foods, setFoods] = useState([]);
 
   const search = (searchValue) => {
-    
     const fetchData = async () => {
       const apiKey = process.env.REACT_APP_API_KEY;
       const result = await spoonacular.get(
@@ -20,21 +19,19 @@ const Searchpage = () => {
   };
 
   return (
-    <>
-      <div>
-        <Search search={search} />
-      </div>
-      <div className='recipe-container'></div>
-      {foods.map((recipe, i) => (
-        <div>
+    <div className='search-layout'>
+      <Search search={search} />
+    
+      <div className='search-container'>
+        {foods.map((recipe, i) => (
           <Searchresults
             key={recipe.id}
             title={recipe.title}
             image={recipe.image}
           />
-        </div>
-      ))}
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 
