@@ -116,6 +116,10 @@
   width: 40%; 
 }
 
+.recipe-instructions {
+  padding-left: 10px;
+}
+
 .recipe-steps {
   width: 60%;
   float: right;

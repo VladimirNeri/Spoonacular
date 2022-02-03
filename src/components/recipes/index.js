@@ -1,6 +1,6 @@
 import React from 'react';
 // import { Link } from 'react-router-dom';
-import './recipes.css';
+import './recipe.css';
 
 const Recipes = (props) => {
   // add line breaks to rendered string

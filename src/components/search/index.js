@@ -29,7 +29,7 @@ const Search = (props) => {
           value={search}
           onChange={onChanges}
         />
-        <input onClick={handleSubmit} type="submit" value="SEARCH" />
+        <input onClick={handleSubmit} type="submit" value="SEARCH" className='search-button'/>
       </form>
   );
 };

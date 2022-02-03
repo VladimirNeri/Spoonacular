@@ -33,16 +33,16 @@ const Recipe = () => {
             <h4>Ingredients:</h4>
             <br></br>
             {recipe.extendedIngredients.map((c, i) => (
-              <div>{c.original}</div>
+              <div key={c.id}>{c.original}</div>
             ))}
           </div>
-          <div className recipe-steps>
+          <div className='recipe-steps'>
             <h4>Instructions:</h4>
             <br></br>
             {recipe.analyzedInstructions.map((e, i) =>
               e.steps.map((steps, i) => (
                 <div className='recipe-steps'>
-                  <div>
+                  <div key={steps.ingredients.id}>
                     Step {steps.number}
                     <br></br>
                     <br></br>

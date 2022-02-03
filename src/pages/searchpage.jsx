@@ -26,6 +26,7 @@ const Searchpage = () => {
         {foods.map((recipe, i) => (
           <Searchresults
             key={recipe.id}
+            id={recipe.id}
             title={recipe.title}
             image={recipe.image}
           />
