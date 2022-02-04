@@ -41,7 +41,7 @@ const Recipe = () => {
             <br></br>
             {recipe.analyzedInstructions.map((e, i) =>
               e.steps.map((steps, i) => (
-                <div className='recipe-steps'>
+                <div className='recipe-instructions'>
                   <div key={steps.ingredients.id}>
                     Step {steps.number}
                     <br></br>
