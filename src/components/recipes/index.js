@@ -23,7 +23,7 @@ const Recipes = (props) => {
       <h2 className='recipe-title'>{props.title}</h2>
 
       <div className='recipe-child'>
-        <img className='recipe-image' src={props.image} alt='recipe' />
+        <img className='recipe-of-the-day-image' src={props.image} alt='recipe' />
       </div>
 
       <div className='recipe-child'>{renderSummary()}</div>

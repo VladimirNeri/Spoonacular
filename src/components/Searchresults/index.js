@@ -8,8 +8,8 @@ const Searchresults = (props) => {
       <Link to={`/recipe/${props.id}`}>
         <div className='recipe-card'>
           <h4 className='recipe-title'>{props.title}</h4>
-          <div className='recipe-image'>
-            <img src={props.image} alt='recipe' />
+          <div >
+            <img className='recipe-search-image' src={props.image} alt='recipe' />
           </div>
         </div>
       </Link>
