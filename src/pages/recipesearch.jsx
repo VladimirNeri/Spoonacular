@@ -8,10 +8,13 @@ import {
 } from 'react-router-dom';
 import spoonacular from '../apis/spoonacular';
 import RecipeDetails from '../components/RecipeDetails';
+import Ingredients from '../components/Ingredients';
+import { matchPath } from 'react-router-dom/cjs/react-router-dom.min';
 
 const RecipeSearch = () => {
   const { id } = useParams();
   const [recipeData, setRecipeData] = useState([]);
+  const [ingredients, setIngredients] = useState([]);
   const [nutritionLabel, setNutritionLabel] = useState([]);
   const match = useRouteMatch();
 
@@ -35,20 +38,21 @@ const RecipeSearch = () => {
           }),
       ]);
       setRecipeData(result.data);
+      setIngredients(result.data.extendedIngredients);
       setNutritionLabel(nutrition);
+      console.log(ingredients);
       console.log(nutrition);
       console.log(result.data);
     };
     fetchData();
-  }, [id]);
+  }, [id, ingredients]);
 
   return (
-    <div className='recipe-details-layout'>
-      <h2>{recipeData.title}</h2>
+    <div className='recipe-layout'>
+      <h2 className='recipe-title'>{recipeData.title}</h2>
       <img
         src={recipeData.image}
-        width='470'
-        className='recipeData-image'
+        className='recipe-image'
         alt={recipeData.name}
       />
 
@@ -85,16 +89,29 @@ const RecipeSearch = () => {
                 to={match.url + '/nutrition'}
               >
                 Nutrition
-                <img
-                  src={nutritionLabel}
-                  alt='Nutrition Facts'
-                  className='nutrition-facts-png'
-                  width='275'
-                />
               </NavLink>
             </li>
           </ul>
         </div>
+        <Switch>
+          <Route exact path={match.path}>
+            <RecipeDetails summary={recipeData.summary} />
+          </Route>
+          <Route exact path={match.path + '/ingredients-list'}>
+            {ingredients.map((c, i) => (
+              <div key={c.id}>{c.original}</div>
+            ))}
+          </Route>
+          <Route exact path={match.path + '/instructions'}></Route>
+          <Route exact path={match.path + '/nutrition'}>
+            <img
+              src={nutritionLabel}
+              alt='Nutrition Facts'
+              className='nutrition-facts-png'
+              width='275'
+            />
+          </Route>
+        </Switch>
       </div>
     </div>
   );
