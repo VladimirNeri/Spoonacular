@@ -2,7 +2,7 @@ import React from 'react'
 
 const Ingredients = (props) => {
   return (
-    <div>
+    <div className='recipe-ingredients'>
       {props.ingredients}
     </div>
   )

@@ -10,7 +10,7 @@ const Searchpage = () => {
     const fetchData = async () => {
       const apiKey = process.env.REACT_APP_API_KEY;
       const result = await spoonacular.get(
-        `/recipes/findByIngredients/?ingredients=${searchValue}?&apiKey=${apiKey}&number=1`
+        `/recipes/findByIngredients/?ingredients=${searchValue}?&apiKey=${apiKey}&number=6`
       );
       setFoods(result.data);
       // console.log(result.data);

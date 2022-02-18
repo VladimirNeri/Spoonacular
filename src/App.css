@@ -1,19 +1,19 @@
 .App {
-  display: grid; 
+  display: grid;
 
   margin-left: auto;
   margin-right: auto;
 }
 
 .container {
-  max-width: 1000px; 
-  margin: 0 auto; 
+  max-width: 1000px;
+  
+  margin: 0 auto;
   /* background-color: dodgerblue; */
 }
 
-
 .rounded {
-  border-radius: 30px; 
+  border-radius: 30px;
 }
 
 /* BUTTONS */
@@ -35,10 +35,10 @@
 
 /* Pages */
 .home-layout {
-  display: grid; 
-  grid-template-columns: 1fr auto; 
-  place-items: center; 
-  grid-gap: 20px; 
+  display: grid;
+  grid-template-columns: 1fr auto;
+  place-items: center;
+  grid-gap: 20px;
   padding-top: 40px;
 }
 
@@ -105,21 +105,29 @@
   }
 }
 
-
-
 /*Recipe Layout*/
 
 .recipe-layout {
- 
 }
 
 .recipe-ingredient {
   float: left;
-  width: 40%; 
+  width: 40%;
+}
+
+.recipe-summary {
+  width: 900px;
+  margin: 0 auto;
+}
+
+.recipe-ingredients {
+  width: 500px;
+  margin: 0 auto;
 }
 
 .recipe-instructions {
-  padding-left: 10px;
+  width: 700px;
+  margin: 0 auto;
 }
 
 .recipe-steps {
@@ -129,10 +137,10 @@
 
 .recipe-title {
   white-space: pre-wrap;
-  text-align: center; 
- }
+  text-align: center;
+}
 
- .recipe-image {
+.recipe-image {
   display: block;
   width: 540px;
   height: auto;
@@ -141,9 +149,12 @@
   border-radius: 30px;
 }
 
+.nutrition-label {
+  display: flex; 
+  justify-content: center;
+}
 
-
-.search-container {  
+.search-container {
   height: 90vh;
 }
 
@@ -160,7 +171,7 @@
   list-style-type: none;
   margin: 0;
   padding: 0;
-  margin-top: 20px; 
+  margin-top: 20px;
 }
 
 .tabs li {

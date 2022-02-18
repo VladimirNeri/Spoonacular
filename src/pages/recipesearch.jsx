@@ -125,12 +125,14 @@ const RecipeSearch = () => {
             )}
           </Route>
           <Route exact path={match.path + '/nutrition'}>
-            <img
-              src={nutritionLabel}
-              alt='Nutrition Facts'
-              className='nutrition-facts-png'
-              width='275'
-            />
+            <div className='nutrition-label'>
+              <img
+                src={nutritionLabel}
+                alt='Nutrition Facts'
+                className='nutrition-facts-png'
+                width='275'
+              />
+            </div>
           </Route>
         </Switch>
       </div>
