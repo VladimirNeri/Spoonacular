@@ -3,7 +3,7 @@ import React from 'react';
 const Recipesummary = (props) => {
   // add line breaks to rendered string
   const tagHtml = (text) => {
-    let string = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    let string = text.toString().replace(/(?:\r\n|\r|\n)/g, '<br>');
     return string;
   };
 

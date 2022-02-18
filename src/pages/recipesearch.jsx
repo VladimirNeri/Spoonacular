@@ -14,6 +14,7 @@ import Ingredients from '../components/Ingredients';
 const RecipeSearch = () => {
   const { id } = useParams();
   const [recipeData, setRecipeData] = useState([]);
+  const [summary, setSummary ] = useState([]);
   const [ingredients, setIngredients] = useState([]);
   const [instructions, setInstructions] = useState([]);
   const [nutritionLabel, setNutritionLabel] = useState([]);
@@ -26,10 +27,11 @@ const RecipeSearch = () => {
         `/recipes/${id}/information?includenutrition=false?&apiKey=${apiKey}`
       );
       setRecipeData(result.data);
+      setSummary(result.data.summary); 
       setIngredients(result.data.extendedIngredients);
       setInstructions(result.data.analyzedInstructions);
-      console.log(result.data.extendedIngredients[0]);
-      console.log(result.data);
+      // console.log(result.data.extendedIngredients[0]);
+      // console.log(result.data);
     };
     fetchData();
   }, [id]);
@@ -49,13 +51,17 @@ const RecipeSearch = () => {
           return imgUrl;
         });
       setNutritionLabel(nutrition);
-      console.log(nutrition);
+      // console.log(nutrition);
     };
     fetchData();
   }, [id]);
 
+
   return (
     <div className='recipe-layout'>
+      <NavLink to={'/search'} className='back-button'>
+      ←
+      </NavLink>
       <h2 className='recipe-title'>{recipeData.title}</h2>
       <img
         src={recipeData.image}
@@ -106,7 +112,7 @@ const RecipeSearch = () => {
         </div>
         <Switch>
           <Route exact path={match.path + '/about'}>
-            <Recipesummary summary={recipeData.summary} />
+            <Recipesummary summary={summary} />
           </Route>
           <Route exact path={match.path + '/ingredients-list'}>
             {ingredients.map((c, i) => (

@@ -154,6 +154,11 @@
   justify-content: center;
 }
 
+.back-button {
+  display: inline-block;
+  z-index: -1;
+}
+
 .search-container {
   height: 90vh;
 }

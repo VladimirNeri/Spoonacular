@@ -4,7 +4,7 @@ import './recipe.css';
 const Recipes = (props) => {
   // add line breaks to rendered string
   const tagHtmlSummary = (text) => {
-    let string = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+    let string = text.toString().replace(/(?:\r\n|\r|\n)/g, '<br>');
     return string;
   };
 

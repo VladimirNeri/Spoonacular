@@ -12,7 +12,7 @@ const Recipe = () => {
         `/recipes/random?number=1&apiKey=${apiKey}`
       );
       setRecipes(result.data.recipes);
-      console.log(result.data.recipes);
+      // console.log(result.data.recipes);
     };
     fetchData();
   }, []);

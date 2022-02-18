@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import './navbar.css'; 
 
 const Navbar = () => {
@@ -23,6 +23,11 @@ const Navbar = () => {
           <NavLink exact activeClassName='active' to='/search'>
             Search
           </NavLink>
+        </li>
+        <li className='nav-item'>
+          <Link to={{ pathname: "https://github.com/VladimirNeri/Spoonacular" }} target="_blank" >
+            Github
+          </Link>
         </li>
       </ul>
     </nav>
