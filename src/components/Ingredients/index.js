@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Ingredients = ({ingredients}) => {
+const Ingredients = (props) => {
   return (
     <div>
-      {ingredients}
+      {props.ingredients}
     </div>
   )
 }

@@ -1,18 +1,17 @@
-import React from 'react'
+import React from 'react';
 
-const Recipesummary = ({ summary }) => {
-   // add line breaks to rendered string
-   const tagHtml = (summary) => {
-    let string = summary.replace(/(?:\r\n|\r|\n)/g, '<br>');
+const Recipesummary = (props) => {
+  // add line breaks to rendered string
+  const tagHtml = (text) => {
+    let string = text.replace(/(?:\r\n|\r|\n)/g, '<br>');
     return string;
   };
 
   const renderData = () => {
-    return <div dangerouslySetInnerHTML={{ __html: tagHtml(summary) }}/>
+    return <div dangerouslySetInnerHTML={{ __html: tagHtml(props.summary) }} />;
   };
-  
+
   return <div className='recipe-summary'>{renderData()}</div>;
+};
 
-}
-
-export default Recipesummary
+export default Recipesummary;

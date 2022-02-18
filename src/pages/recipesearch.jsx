@@ -7,45 +7,52 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import spoonacular from '../apis/spoonacular';
-import RecipeDetails from '../components/RecipeDetails';
+import Recipesummary from '../components/RecipeSummary';
+import Recipeinstructions from '../components/Recipeinstructions';
 import Ingredients from '../components/Ingredients';
-import { matchPath } from 'react-router-dom/cjs/react-router-dom.min';
 
 const RecipeSearch = () => {
   const { id } = useParams();
   const [recipeData, setRecipeData] = useState([]);
   const [ingredients, setIngredients] = useState([]);
+  const [instructions, setInstructions] = useState([]);
   const [nutritionLabel, setNutritionLabel] = useState([]);
   const match = useRouteMatch();
 
   useEffect(() => {
     const fetchData = async () => {
       const apiKey = process.env.REACT_APP_API_KEY;
-      const [result, nutrition] = await Promise.all([
-        spoonacular.get(
-          `/recipes/${id}/information?includenutrition=false?&apiKey=${apiKey}`
-        ),
-        spoonacular
-          .get(`/recipes/${id}/nutritionLabel.png?&apiKey=${apiKey}`, {
-            responseType: 'blob',
-            headers: {
-              'Content-Type': 'image/png',
-            },
-          })
-          .then((response) => {
-            let imgUrl = URL.createObjectURL(response.data);
-            return imgUrl;
-          }),
-      ]);
+      const result = await spoonacular.get(
+        `/recipes/${id}/information?includenutrition=false?&apiKey=${apiKey}`
+      );
       setRecipeData(result.data);
       setIngredients(result.data.extendedIngredients);
-      setNutritionLabel(nutrition);
-      console.log(ingredients);
-      console.log(nutrition);
+      setInstructions(result.data.analyzedInstructions);
+      console.log(result.data.extendedIngredients[0]);
       console.log(result.data);
     };
     fetchData();
-  }, [id, ingredients]);
+  }, [id]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const apiKey = process.env.REACT_APP_API_KEY;
+      const nutrition = await spoonacular
+        .get(`/recipes/${id}/nutritionLabel.png?&apiKey=${apiKey}`, {
+          responseType: 'blob',
+          headers: {
+            'Content-Type': 'image/png',
+          },
+        })
+        .then((response) => {
+          let imgUrl = URL.createObjectURL(response.data);
+          return imgUrl;
+        });
+      setNutritionLabel(nutrition);
+      console.log(nutrition);
+    };
+    fetchData();
+  }, [id]);
 
   return (
     <div className='recipe-layout'>
@@ -60,7 +67,11 @@ const RecipeSearch = () => {
         <div className='tabs'>
           <ul>
             <li>
-              <NavLink exact activeClassName='tab-active' to={match.url}>
+              <NavLink
+                exact
+                activeClassName='tab-active'
+                to={match.url + '/about'}
+              >
                 About
               </NavLink>
             </li>
@@ -94,15 +105,25 @@ const RecipeSearch = () => {
           </ul>
         </div>
         <Switch>
-          <Route exact path={match.path}>
-            <RecipeDetails summary={recipeData.summary} />
+          <Route exact path={match.path + '/about'}>
+            <Recipesummary summary={recipeData.summary} />
           </Route>
           <Route exact path={match.path + '/ingredients-list'}>
             {ingredients.map((c, i) => (
-              <div key={c.id}>{c.original}</div>
+              <Ingredients key={i} ingredients={c.original} />
             ))}
           </Route>
-          <Route exact path={match.path + '/instructions'}></Route>
+          <Route exact path={match.path + '/instructions'}>
+            {instructions.map((e, i) =>
+              e.steps.map((steps, i) => (
+                <Recipeinstructions
+                  key={steps.ingredients.id}
+                  step={steps.number}
+                  instruction={steps.step}
+                />
+              ))
+            )}
+          </Route>
           <Route exact path={match.path + '/nutrition'}>
             <img
               src={nutritionLabel}
