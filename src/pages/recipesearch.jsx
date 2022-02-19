@@ -6,7 +6,7 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
-import Navbar from '../components/Navbar';
+import Navbar from '../components/Navbar/index.js';
 import spoonacular from '../apis/spoonacular';
 import Recipesummary from '../components/RecipeSummary';
 import Recipeinstructions from '../components/Recipeinstructions';
