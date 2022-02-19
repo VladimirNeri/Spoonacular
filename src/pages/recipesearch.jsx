@@ -10,6 +10,7 @@ import spoonacular from '../apis/spoonacular';
 import Recipesummary from '../components/RecipeSummary/index.js';
 import Recipeinstructions from '../components/Recipeinstructions/index.js';
 import Ingredients from '../components/Ingredients/index.js';
+import Navbar from '../components/Navbar/index.js';
 
 const RecipeSearch = () => {
   const { id } = useParams();
@@ -58,6 +59,8 @@ const RecipeSearch = () => {
 
 
   return (
+    <>
+    <Navbar />
     <div className='recipe-layout'>
       <NavLink to={'/search'} className='back-button'>
       ←
@@ -143,6 +146,7 @@ const RecipeSearch = () => {
         </Switch>
       </div>
     </div>
+    </>
   );
 };
 

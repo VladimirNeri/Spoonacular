@@ -1,5 +1,5 @@
 .navbar {
-  padding: 10px;
+
   display: flex; 
   align-items: center; 
   justify-content: space-between; 
@@ -10,7 +10,7 @@
 .nav-brand {
   font-family: 'Shadows Into Light', cursive;
   text-decoration: none;
-  padding-left: 20px; 
+
   color: black; 
   font-size: 40px; 
   font-weight: 450; 
@@ -27,7 +27,7 @@
 .navbar ul {
   list-style-type: none; 
   overflow: hidden; 
-  padding-right: 20px; 
+
   text-align: center; 
   text-transform: uppercase;
 }

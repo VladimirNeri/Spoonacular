@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Recipes from '../components/Recipes/index.js';
 import spoonacular from '../apis/spoonacular';
+import Navbar from '../components/Navbar/index.js';
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
@@ -18,6 +19,8 @@ const Recipe = () => {
   }, []);
 
   return (
+    <>
+    <Navbar />
     <div>
       {recipes.map((recipe, i) => (
         <div key={i} className='recipe-layout'>
@@ -56,6 +59,7 @@ const Recipe = () => {
         </div>
       ))}
     </div>
+    </>
   );
 };
 

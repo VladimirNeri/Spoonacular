@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import spoonacular from '../apis/spoonacular';
 import Search from '../components/Search/index.js';
 import Searchresults from '../components/Searchresults/index.js';
+import Navbar from '../components/Navbar/index.js';
 
 const Searchpage = () => {
   const [foods, setFoods] = useState([]);
@@ -19,6 +20,8 @@ const Searchpage = () => {
   };
 
   return (
+    <>
+    <Navbar />
     <div className='search-layout'>
       <Search search={search} />
     
@@ -33,6 +36,7 @@ const Searchpage = () => {
         ))}
       </div>
     </div>
+    </>
   );
 };
 
