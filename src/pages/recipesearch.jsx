@@ -6,6 +6,7 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
+import Navbar from '../components/Navbar';
 import spoonacular from '../apis/spoonacular';
 import Recipesummary from '../components/RecipeSummary';
 import Recipeinstructions from '../components/Recipeinstructions';
@@ -58,6 +59,8 @@ const RecipeSearch = () => {
 
 
   return (
+    <>
+    <Navbar />
     <div className='recipe-layout'>
       <NavLink to={'/search'} className='back-button'>
       ←
@@ -143,6 +146,7 @@ const RecipeSearch = () => {
         </Switch>
       </div>
     </div>
+    </>
   );
 };
 
