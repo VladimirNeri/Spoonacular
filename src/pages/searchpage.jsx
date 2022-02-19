@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import spoonacular from '../apis/spoonacular';
-import Search from '../components/Search/index.js';
-import Searchresults from '../components/Searchresults/index.js';
-import Navbar from '../components/Navbar/index.js';
+import Search from '../components/Search.js';
+import Searchresults from '../components/Searchresults.js';
+import Navbar from '../components/Navbar.js';
 
 const Searchpage = () => {
   const [foods, setFoods] = useState([]);

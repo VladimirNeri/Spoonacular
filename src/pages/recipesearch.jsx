@@ -7,10 +7,10 @@ import {
   useRouteMatch,
 } from 'react-router-dom';
 import spoonacular from '../apis/spoonacular';
-import Recipesummary from '../components/RecipeSummary/index.js';
-import Recipeinstructions from '../components/Recipeinstructions/index.js';
-import Ingredients from '../components/Ingredients/index.js';
-import Navbar from '../components/Navbar/index.js';
+import Recipesummary from '../components/Recipesummary.js';
+import Recipeinstructions from '../components/Recipeinstructions.js';
+import Ingredients from '../components/Ingredients.js';
+import Navbar from '../components/Navbar.js';
 
 const RecipeSearch = () => {
   const { id } = useParams();

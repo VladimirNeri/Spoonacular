@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import Recipes from '../components/Recipes/index.js';
+import Recipes from '../components/Recipes.js';
 import spoonacular from '../apis/spoonacular';
-import Navbar from '../components/Navbar/index.js';
+import Navbar from '../components/Navbar.js';
 
 const Recipe = () => {
   const [recipes, setRecipes] = useState([]);
