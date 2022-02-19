@@ -1,12 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import logo from '../assets/titleimage.jpg';
-import Navbar from '../components/Navbar/index.js';
 
 const Home = () => {
   return (
-    <>
-    <Navbar />
     <div className='home-layout'>
       <div>
         <h1>Online Recipe Search</h1>
@@ -32,7 +29,6 @@ const Home = () => {
         alt=''
       />
     </div>
-    </>
   );
 };
 

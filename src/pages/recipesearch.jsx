@@ -6,11 +6,10 @@ import {
   useParams,
   useRouteMatch,
 } from 'react-router-dom';
-import Navbar from '../components/Navbar/index.js';
 import spoonacular from '../apis/spoonacular';
-import Recipesummary from '../components/RecipeSummary';
-import Recipeinstructions from '../components/Recipeinstructions';
-import Ingredients from '../components/Ingredients';
+import Recipesummary from '../components/RecipeSummary/index.js';
+import Recipeinstructions from '../components/Recipeinstructions/index.js';
+import Ingredients from '../components/Ingredients/index.js';
 
 const RecipeSearch = () => {
   const { id } = useParams();
@@ -59,8 +58,6 @@ const RecipeSearch = () => {
 
 
   return (
-    <>
-    <Navbar />
     <div className='recipe-layout'>
       <NavLink to={'/search'} className='back-button'>
       ←
@@ -146,7 +143,6 @@ const RecipeSearch = () => {
         </Switch>
       </div>
     </div>
-    </>
   );
 };
 
