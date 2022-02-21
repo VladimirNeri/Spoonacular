@@ -1,15 +1,12 @@
 .App {
   display: grid;
-
   margin-left: auto;
   margin-right: auto;
 }
 
 .container {
   max-width: 1000px;
-  
   margin: 0 auto;
-  /* background-color: dodgerblue; */
 }
 
 .rounded {
@@ -18,14 +15,16 @@
 
 /* BUTTONS */
 .btn {
-  border-radius: 3px;
+  border-radius: 30px;
   display: inline-block;
   cursor: pointer;
   font-size: 14px;
   font-weight: 600;
-  padding: 13px 40px;
+  padding: 14px 20px;
+  
   border: 0;
   transition: background-color 200ms, color 200ms;
+  background-color: salmon;
 }
 
 .btn-default {
@@ -150,7 +149,7 @@
 }
 
 .nutrition-label {
-  display: flex; 
+  display: flex;
   justify-content: center;
 }
 
@@ -191,6 +190,7 @@
   padding-left: 50px;
   padding-right: 50px;
 }
+
 .tabs .tab-active {
   border-bottom: 5px solid salmon;
 }
